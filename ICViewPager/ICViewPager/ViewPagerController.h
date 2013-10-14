@@ -14,7 +14,8 @@ typedef NS_ENUM(NSUInteger, ViewPagerOption) {
     ViewPagerOptionTabWidth,
     ViewPagerOptionTabLocation,
     ViewPagerOptionStartFromSecondTab,
-    ViewPagerOptionCenterCurrentTab
+    ViewPagerOptionCenterCurrentTab,
+    ViewPagerOptionRetainPages
 };
 
 typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
@@ -50,6 +51,9 @@ typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
 // 1.0: YES, 0.0: NO, defines if tabs should be centered, with the given tabWidth
 // Defaults to NO
 @property CGFloat centerCurrentTab;
+
+// 1.0: YES, 0.0: NO, defines if view controllers should be stored for reuse.
+@property CGFloat retainPages;
 
 #pragma mark Colors
 // Colors for several parts

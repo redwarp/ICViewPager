@@ -74,6 +74,8 @@
         case ViewPagerOptionTabLocation:
             return 1.0;
             break;
+        case ViewPagerOptionRetainPages:
+            return 0.0;
         default:
             break;
     }
