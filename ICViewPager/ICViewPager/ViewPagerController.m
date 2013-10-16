@@ -97,7 +97,7 @@
 static char INDEX_KEY;
 
 - (void)setIndex:(NSUInteger)icIndex {
-    objc_setAssociatedObject(self, &INDEX_KEY, [NSNumber numberWithUnsignedInt:icIndex], OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, &INDEX_KEY, [NSNumber numberWithUnsignedInt:icIndex], OBJC_ASSOCIATION_RETAIN);
 }
 
 - (NSUInteger)icIndex {
