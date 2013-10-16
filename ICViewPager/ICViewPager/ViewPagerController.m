@@ -206,7 +206,6 @@ static char INDEX_KEY;
     // __weak pageViewController to be used in blocks to prevent retaining strong reference to self
     __weak UIPageViewController *weakPageViewController = self.pageViewController;
     __weak ViewPagerController *weakSelf = self;
-    __weak UIViewController *weakViewController = viewController;
 
     NSLog(@"%@", weakPageViewController.view);
 
@@ -218,12 +217,12 @@ static char INDEX_KEY;
                                              weakSelf.animatingToTab = NO;
 
                                              // Set the current page again to obtain synchronisation between tabs and content
-//                                             dispatch_async(dispatch_get_main_queue(), ^{
-//                                                 [weakPageViewController setViewControllers:@[weakViewController]
-//                                                                                  direction:UIPageViewControllerNavigationDirectionReverse
-//                                                                                   animated:NO
-//                                                                                 completion:nil];
-//                                             });
+                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                 [weakPageViewController setViewControllers:@[viewController]
+                                                                                  direction:UIPageViewControllerNavigationDirectionReverse
+                                                                                   animated:NO
+                                                                                 completion:nil];
+                                             });
                                          }];
     } else if (index > self.activeTabIndex) {
         [self.pageViewController setViewControllers:@[viewController]
@@ -233,12 +232,12 @@ static char INDEX_KEY;
                                              weakSelf.animatingToTab = NO;
 
                                              // Set the current page again to obtain synchronisation between tabs and content
-//                                             dispatch_async(dispatch_get_main_queue(), ^{
-//                                                 [weakPageViewController setViewControllers:@[weakViewController]
-//                                                                                  direction:UIPageViewControllerNavigationDirectionForward
-//                                                                                   animated:NO
-//                                                                                 completion:nil];
-//                                             });
+                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                 [weakPageViewController setViewControllers:@[viewController]
+                                                                                  direction:UIPageViewControllerNavigationDirectionForward
+                                                                                   animated:NO
+                                                                                 completion:nil];
+                                             });
                                          }];
     }
 
